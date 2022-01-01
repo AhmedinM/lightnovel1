@@ -1,0 +1,18 @@
+<form class="text-center" ngNativeValidate>
+    <h3><u>Unos poglavlja romana</u></h3>
+    <hr>
+    <div *ngIf="msg" class="alert alert-success">Poglavlje je dodato.</div>
+    <div class="form-group col-12">
+        <label for="titleInput">Naslov:</label>
+        <input type="text" class="form-control text-light" style="background-color: black;" id="titleInput" aria-describedby="titleHelp" placeholder="Unesi naslov..." name="title" [(ngModel)]="title" required>
+    </div>
+    <div class="form-group col-12">
+      <label for="numberInput">Broj:</label>
+      <input type="number" min=1 max=1000 value=1 class="form-control text-light" style="background-color: black;" id="numberInput" aria-describedby="numberHelp" name="number" [(ngModel)]="number" required>
+    </div>
+    <div class="form-group col-12">
+      <label for="textInput">Tekst:</label>
+      <textarea class="form-control text-light" style="background-color: black;" id="textInput" placeholder="Unesi tekst..." name="text" [(ngModel)]="text" required></textarea>
+    </div>
+    <button type="submit" class="btn btn-outline-success" (click)="insertChapter()"><i class="fa fa-floppy-o" aria-hidden="true"></i> Sačuvaj</button>
+</form>

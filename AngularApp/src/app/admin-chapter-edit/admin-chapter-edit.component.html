@@ -1,0 +1,9 @@
+<div>
+    <h2>Lista komentara</h2>
+    <br>
+    <div *ngIf="msg" class="alert alert-success">Komentar je obrisan.</div>
+    <div *ngFor="let comm of comments" class="bg-dark mb-2 pt-3 pb-3" style="border: solid white 1px;">
+        <span class="ml-5">{{comm.text}}</span>
+        <button (click)="deleteComment(comm._id)" class="float-right mr-5 btn btn-outline-danger"><i class="fa fa-trash" aria-hidden="true"></i> Obriši</button>
+    </div>
+</div>

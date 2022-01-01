@@ -1,0 +1,19 @@
+<a href="/novel/{{novel._id}}"><button class="btn btn-outline-primary ml-3 mb-3"><i class="fa fa-arrow-left" aria-hidden="true"></i> Nazad na: {{novel.title}}</button></a>
+<h3 class="text-center mt-1 mb-3"><u>{{chapter.number}}. {{chapter.title}}</u></h3>
+<br>
+<div class="row ml-2 mr-2 mt-2 mb-2">
+    <div class="col-11 mr-1 mt-1 mb-1 ml-1" style="border: solid 1pt white;">
+        {{chapter.text}}
+    </div>
+</div>
+<hr>
+<div class="row ml-2 mr-2 mt-2 mb-2 text-center">
+    <div class="col-lg-5 col-sm-12 mr-1 mt-1 mb-1 ml-1" style="border: solid 1pt white;">
+        <h4><u>Komentari:</u></h4>
+        <comment></comment>
+    </div>
+    <form class="col-lg-6 col-sm-12 mr-1 mt-1 mb-1 ml-1" action="" style="border: solid 1pt white;">
+        <h4><u>Unos komentara:</u></h4>
+        <insert-comment></insert-comment>
+    </form>
+</div>

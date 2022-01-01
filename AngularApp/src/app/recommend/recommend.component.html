@@ -1,0 +1,5 @@
+<div *ngFor="let rec of recomms" class="col-12" style="background-color: black; border: 1px solid white;">
+    <img src="{{rec.picture}}" class="mr-5" style="margin: 2px; width: 50px; height: 50px; border: solid white 1px; display: inline;" alt="Nema">
+    <a class="text-light" href="/novel/{{rec._id}}"><h3 style="display: inline;">{{rec.title}}</h3></a>
+</div>
+<br>

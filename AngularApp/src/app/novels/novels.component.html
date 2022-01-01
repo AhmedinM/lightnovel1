@@ -1,0 +1,54 @@
+<h3 class="text-center mt-1 mb-3"><u>{{novel.title}}</u></h3>
+<div *ngIf="logged" class="text-center text-success">
+    <br>
+    <div *ngIf="follow"><i class="fa fa-bell" aria-hidden="true"></i> Pratite</div>
+    <div *ngIf="fMsg" class="alert alert success">Zapratili ste roman.</div>
+    <button *ngIf="follow==false" class="btn btn-success" (click)="followNovel()"><i class="fa fa-bell" aria-hidden="true"></i> Zaprati</button>
+    <br>
+</div>
+<br>
+<div class="row ml-2 mr-2 mt-2 mb-2">
+    <img src="{{novel.picture}}" alt="Nema" class="col-lg-5 col-sm-12">
+    <div class="col-lg-6 mr-1 mt-1 mb-1 ml-1 col-sm-12" style="border: solid 1pt white;">
+        {{novel.description}}
+    </div>
+</div>
+<hr>
+<div class="row ml-2 mr-2 mt-2 mb-2">
+    <div class="col-lg-5 col-sm-12">
+        <h6><u>Autor:</u></h6>
+        {{novel.author}}
+        <br> <br>
+        <h6><u>Status:</u></h6>
+        <span *ngIf="novel.status" style="background-color: green; border-radius: 15%; padding: 5pt;">Završeno</span>
+        <span *ngIf="novel.status==false" style="background-color: red; border-radius: 15%; padding: 5pt;">U toku</span>
+    </div>
+    <div class="col-lg-6 mr-1 mt-1 mb-1 ml-1 col-sm-12" style="border: solid 1pt white;">
+        <h6><u>Žanrovi:</u></h6>
+        <br>
+        <span *ngFor='let gen of genres' style="background-color: black; border-radius: 15%; padding: 5pt;">{{gen.genre.name}}</span> &nbsp;&nbsp;&nbsp;
+        <br><br>
+    </div>
+</div>
+<hr>
+<div class="row ml-2 mr-2 mt-2 mb-2">
+    <div class="col-lg-5 mr-1 mt-1 mb-1 ml-1 col-sm-12" style="border: solid 1pt white;">
+        <h6><u>Poglavlja:</u></h6>
+        <chapter-list></chapter-list>
+    </div>
+    <div class="col-lg-6 mr-1 mt-1 mb-1 ml-1 col-sm-12" style="border: solid 1pt white;">
+        <h6><u>Preporučeno:</u></h6>
+        <recommend></recommend>
+    </div>
+</div>
+<hr>
+<div class="row ml-2 mr-2 mt-2 mb-2">
+    <div class="col-lg-5 mr-1 mt-1 mb-1 ml-1 col-sm-12" style="border: solid 1pt white;">
+        <h4><u>Recenzije:</u></h4>
+        <review></review>
+    </div>
+    <div *ngIf="logged" class="col-lg-6 mr-1 mt-1 mb-1 ml-1 col-sm-12" action="" style="border: solid 1pt white;">
+        <h4><u>Unos recenzije:</u></h4>
+        <insert-review></insert-review>
+    </div>
+</div>

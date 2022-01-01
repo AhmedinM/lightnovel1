@@ -1,0 +1,19 @@
+<br>
+<div *ngIf="msg" class="alert alert-danger">Recenzija je obrisana.</div>
+<div class="mb-3" style="border: 1pt solid white;" *ngFor="let rev of reviews">
+    <div style="background-color: black;">
+        <h3 style="display: inline;">{{rev.title}}</h3>
+        <h5 style="display: inline;" class="float-right mt-2 mr-2"><i class="fa fa-star"></i>{{rev.mark}}</h5>
+    </div>
+    <div>
+        {{rev.text}}
+    </div>
+    <div style="background-color: black;">
+        <img src="{{rev.user.picture}}" style="margin: 2px; width: 50px; height: 50px; border: solid white 1px; border-radius: 50%; display: inline;" alt="Nema">
+        <span class="ml-3">{{rev.user.username}}</span>
+        <button *ngIf="rev.user._id==userId" class="float-right mt-2 mr-2 btn btn-danger" (click)="deleteReview(rev._id)"><i class="fa fa-trash" aria-hidden="true"></i> Obriši</button>
+        <br>
+        <span class="ml-3"><i class="fa fa-calendar" aria-hidden="true"> </i> {{rev.datetime | date: 'medium'}}</span>
+    </div>
+</div>
+<br>

@@ -1,0 +1,55 @@
+<form class="text-center" ngNativeValidate>
+    <h3><u>Dodaj novog administratora</u></h3>
+    <br>
+    <div class="alert alert-success" *ngIf="msg">
+        Novi administrator je dodat.
+    </div>
+    <div class="form-group col-12">
+      <label for="emailInput">Email adresa:</label>
+      <input type="email" class="form-control text-light" style="background-color: black;" id="emailInput" aria-describedby="emailHelp" placeholder="Unesi email..." name="email" [(ngModel)]="email" required>
+      <span class="alert alert-danger" role="alert" *ngIf="emailError">
+        Email je zauzet!
+      </span>
+    </div>
+    <div class="form-group col-12">
+      <label for="passwordConfirmInput">Lozinka:</label>
+      <input type="password" class="form-control text-light" style="background-color: black;" id="passwordInput" placeholder="Unesi lozinku..." name="password" [(ngModel)]="password" required>
+    </div>
+    <div class="form-group col-12">
+        <label for="passwordConfirmInput">Potvrdi lozinku:</label>
+        <input type="password" class="form-control text-light" style="background-color: black;" id="passwordConfirmInput" placeholder="Unesi lozinku ponovo..." name="passwordConfirm" [(ngModel)]="passwordConfirm" required>
+        <br>
+        <span class="alert alert-danger" role="alert" *ngIf="passwordError">
+          Lozinke se ne poklapaju!
+        </span>
+    </div>
+    <button type="submit" class="btn btn-outline-success" (click)="add()"><i class="fa fa-floppy-o" aria-hidden="true"></i> Regitracija</button>
+</form>
+<hr>
+<form class="text-center" ngNativeValidate>
+  <h3><u>Nova lozinka</u></h3>
+  <br>
+  <span class="alert alert-success" role="alert" *ngIf="passMsg">
+    Ažurirano!
+  </span>
+  <div class="form-group col-12">
+    <label for="passwordCInput">Lozinka:</label>
+    <input type="password" class="form-control text-light" style="background-color: black;" id="passwordCInput" placeholder="Unesi lozinku..." name="passwordC" [(ngModel)]="passwordC" required>
+  </div>
+  <div class="form-group col-12">
+      <label for="passwordConfirmCInput">Potvrdi lozinku:</label>
+      <input type="password" class="form-control text-light" style="background-color: black;" id="passwordConfirmCInput" placeholder="Unesi lozinku ponovo..." name="passwordConfirmC" [(ngModel)]="passwordConfirmC" required>
+      <br>
+      <span class="alert alert-danger" role="alert" *ngIf="passwordErrorC">
+        Lozinke se ne poklapaju!
+      </span>
+  </div>
+  <button type="submit" class="btn btn-outline-success" (click)="newPassword()"><i class="fa fa-floppy-o" aria-hidden="true"></i> Sacuvaj</button>
+  <br><br>
+</form>
+<hr>
+<div class="text-center">
+    <h3><u>Deaktivacija naloga</u></h3>
+    <br>
+    <button class="btn btn-danger" (click)="deactivate(token.subject)"><i class="fa fa-trash" aria-hidden="true"></i> Deaktiviraj</button>
+</div>

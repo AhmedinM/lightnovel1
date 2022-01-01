@@ -1,0 +1,15 @@
+<br>
+<div *ngIf="msg" class="alert alert-danger">Komentar je obrisan.</div>
+<div class="mb-3" style="border: 1pt solid white;" *ngFor="let comm of comments">
+    <div>
+        {{comm.text}}
+    </div>
+    <div style="background-color: black;" class="text-left">
+        <img src="{{comm.user.picture}}" style="margin: 2px; width: 50px; height: 50px; border: solid white 1px; border-radius: 50%; display: inline;" alt="Nema">
+        <span class="ml-3">{{comm.user.username}}</span>
+        <button *ngIf="comm.user._id==userId" class="float-right mt-2 mr-2 btn btn-danger" (click)="deleteComment(comm._id)"><i class="fa fa-trash" aria-hidden="true"></i> Obriši</button>
+        <br>
+        <span class="ml-3"><i class="fa fa-calendar" aria-hidden="true"></i> {{comm.datetime | date: 'medium'}}</span>
+    </div>
+</div>
+<br>

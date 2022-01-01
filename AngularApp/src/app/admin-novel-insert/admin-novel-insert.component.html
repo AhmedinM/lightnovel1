@@ -1,0 +1,34 @@
+<form class="text-center" ngNativeValidate>
+    <h3><u>Unos romana</u></h3>
+    <hr>
+    <div *ngIf="msg" class="alert alert-success">Roman je dodat.</div>
+    <div class="form-group col-12">
+        <label for="titleInput">Naslov:</label>
+        <input type="text" class="form-control text-light" style="background-color: black;" id="titleInput" aria-describedby="titleHelp" placeholder="Unesi naslov..." name="title" [(ngModel)]="title" required>
+    </div>
+    <span class="alert alert-danger" role="alert" *ngIf="titleError">
+      Roman već postoji!
+  </span>
+    <div class="form-group col-12">
+      <label for="authorInput">Autor:</label>
+      <input type="text" class="form-control text-light" style="background-color: black;" id="authorInput" aria-describedby="authorHelp" placeholder="Unesi autora..." name="email" [(ngModel)]="author" required>
+    </div>
+    <div class="form-group col-12">
+      <label for="descriptionInput">Opis:</label>
+      <textarea type="text" class="form-control text-light" style="background-color: black;" id="descriptionInput" placeholder="Unesi opis..." name="description" [(ngModel)]="description" required></textarea>
+    </div>
+    <div class="form-group col-12">
+      <h5>Žanrovi</h5>
+      <div *ngFor="let g of genres">
+        <input type="checkbox" value="{{g._id}}" (click)="addGenre(g._id)">
+        <label for="descriptionInput">{{g.name}}</label>
+      </div>
+    </div>
+    <div class="form-group col-12">
+        <label for="pictureInput">Slika:</label>
+        <input type="file" class="form-control-file" style="background-color: black;" id="pictureInput" name="picture" (change)="selected($event)" required>
+    </div>
+    <hr>
+    <button type="submit" class="btn btn-outline-success" (click)="insertNovel()"><i class="fa fa-floppy-o" aria-hidden="true"></i> Sačuvaj</button>
+</form>
+<br>

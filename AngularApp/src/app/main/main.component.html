@@ -1,0 +1,63 @@
+<div class="container">
+    <nav class="navbar navbar-expand-lg top py-5" style="background-color: black; font-size: 20px;">
+      <a class="navbar-brand text-light ml-3 mr-5" href="/">
+        <img style="width: 200px; height: auto;" src="./assets/img/logo.png" alt="Logo">
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active mr-3">
+            <a class="nav-link text-light" href="/"><i class="fa fa-home" aria-hidden="true"></i> Početna<span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item mr-3">
+            <a class="nav-link text-light" href="/all"><i class="fa fa-globe" aria-hidden="true"></i> Sve</a>
+          </li>
+          <!--<li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Zanrovi
+            </a>
+            <div class="dropdown-menu bg-dark" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item text-light" href="#">Akcija</a>
+              <a class="dropdown-item text-light" href="#">Avantura</a>
+              <a class="dropdown-item text-light" href="#">Fantazija</a>
+              <a class="dropdown-item text-light" href="#">Horor</a>
+              <a class="dropdown-item text-light" href="#">Naucna fantastika</a>
+            </div>
+          </li>-->
+          <li class="nav-item mr-3">
+            <a class="nav-link text-light" href="/search"><i class="fa fa-search" aria-hidden="true"></i> Pretraga</a>
+          </li>
+          <li class="nav-item mr-3">
+            <a class="nav-link text-light" href="/about"><i class="fa fa-info-circle" aria-hidden="true"></i> O nama</a>
+          </li>
+          <li class="nav-item dropdown mr-3">
+            <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <i class="fa fa-user"></i>
+            </a>
+            <div class="dropdown-menu bg-dark" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item text-light" *ngIf="loggedIn==true" href="/profile"><i class="fa fa-wrench" aria-hidden="true"></i> Profil</a>
+              <a class="dropdown-item text-light" *ngIf="loggedIn==false" href="/login"><i class="fa fa-sign-in" aria-hidden="true"></i> Prijavi se</a>
+              <div class="dropdown-divider text-light"></div>
+              <a class="dropdown-item text-light" *ngIf="loggedIn==true" href="/logout"><i class="fa fa-sign-out" aria-hidden="true"></i> Odjavi se</a>
+              <a class="dropdown-item text-light" *ngIf="loggedIn==false" href="/register"><i class="fa fa-plus" aria-hidden="true"></i> Registruj se</a>
+            </div>
+          </li>
+        </ul>
+        <<!--form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="search" placeholder="Unesi pojam..." aria-label="Unesi pojam...">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Trazi</button>
+        </form>-->
+      </div>
+    </nav>
+    <div style="min-height: 75vh;" class="bg-dark h-100" style="color: white;">
+      <br>
+      <router-outlet></router-outlet>
+      <br>
+    </div>
+    <nav class="navbar bottom text-center" style="background-color: black; height: 10%;">
+      <span class="text-light" style="margin-left: 40%">© 2021: Ahmedin Muratović</span>
+    </nav>
+  </div>

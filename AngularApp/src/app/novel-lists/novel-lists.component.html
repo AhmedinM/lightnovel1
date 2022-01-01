@@ -1,0 +1,72 @@
+<h3 class="text-center mt-1 mb-3"><u>Preporučeno</u></h3>
+<div class="row ml-2 mr-2" style="border: solid 1pt white;">
+    <div *ngFor="let rand of randoms" class="card ml-1 mr-1 mt-1 mb-1 text-light bg-primary" style="width: 13rem; height: 25rem; max-height: 25rem;">
+        <img class="card-img-top" src="{{rand.picture}}" alt="Slika">
+        <div class="card-body">
+          <h5 class="card-title"><b>{{rand.title}}</b></h5>
+        </div>
+        <ul class="list-group list-group-flush text-light ml-1 mr-1">
+            <li class="list-group-item bg-dark">{{rand.author}}</li>
+            <li *ngIf="rand.status" class="list-group-item bg-dark" style="color: green;">Završeno</li>
+            <li *ngIf="rand.status==false" class="list-group-item bg-dark" style="color: red;">U toku</li>
+        </ul>
+        <div class="card-body">
+          <a href="/novel/{{rand._id}}" class="card-link"><button class="btn btn-outline-danger"><i class="fa fa-forward" aria-hidden="true"></i> Više</button></a>
+        </div>
+    </div>
+</div>
+
+<hr>
+<h3 class="text-center mt-1 mb-3"><u>Najnovije</u></h3>
+<div class="row ml-2">
+    <div *ngFor="let new of news" class="card ml-1 mr-1 mt-1 mb-1 text-light bg-warning" style="width: 13rem; height: 25rem; max-height: 25rem;">
+        <img class="card-img-top" src="{{new.picture}}" alt="Slika">
+        <div class="card-body">
+          <h5 class="card-title"><b>{{new.title}}</b></h5>
+        </div>
+        <ul class="list-group list-group-flush text-light ml-1 mr-1">
+            <li class="list-group-item bg-dark">{{new.author}}</li>
+            <li *ngIf="new.status" class="list-group-item bg-dark" style="color: green;">Završeno</li>
+            <li *ngIf="new.status==false" class="list-group-item bg-dark" style="color: red;">U toku</li>
+        </ul>
+        <div class="card-body">
+          <a href="/novel/{{new._id}}" class="card-link"><button class="btn btn-outline-danger"><i class="fa fa-forward" aria-hidden="true"></i> Više</button></a>
+        </div>
+    </div>
+</div>
+
+<hr><h3 class="text-center mt-1 mb-3"><u>Najbolje</u></h3>
+<div class="row ml-2">
+    <div *ngFor="let best of bests" class="card ml-1 mr-1 mt-1 mb-1 text-light bg-success" style="width: 13rem; height: 25rem; max-height: 25rem;">
+        <img class="card-img-top" src="{{best.novel.picture}}" alt="Slika">
+        <div class="card-body">
+          <h5 class="card-title"><b>{{best.novel.title}}</b></h5>
+          <p class="card-text">{{best.mark}}<br></p>
+        </div>
+        <hr>
+        <div class="card-body">
+          <p class="card-text">{{best.title}}<br></p>
+        </div>
+        <hr>
+        <div class="card-body">
+          <a href="/novel/{{best.novel._id}}" class="card-link"><button class="btn btn-outline-danger"><i class="fa fa-forward" aria-hidden="true"></i> Više</button></a>
+        </div>
+    </div>
+</div>
+
+<hr><h3 class="text-center mt-1 mb-3"><u>Najčitanije</u></h3>
+<div class="row ml-2">
+    <div *ngFor="let pop of populars" class="card ml-1 mr-1 mt-1 mb-1 text-light bg-secondary" style="width: 13rem; height: 25rem; max-height: 25rem; background-color: black;">
+        <img class="card-img-top" src="{{pop.novel.picture}}" alt="Slika">
+        <div class="card-body">
+          <h5 class="card-title"><b>{{pop.novel.title}}</b></h5>
+        </div>
+        <div class="card-body">
+          <h6 class="card-title"><b>{{pop.number}}. {{pop.title}}</b></h6>
+        </div>
+        <div class="card-body">
+          <a href="/novel/{{pop.novel._id}}/{{pop._id}}" class="card-link"><button class="btn btn-outline-danger"><i class="fa fa-forward" aria-hidden="true"></i> Više</button></a>
+        </div>
+    </div>
+</div>
+<hr>

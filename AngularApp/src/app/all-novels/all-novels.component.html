@@ -1,0 +1,22 @@
+<h3 class="text-center mt-1 mb-3"><u>Svi romani</u></h3>
+<div class="row ml-2 mr-2">
+    <div *ngFor="let novel of novels | paginate: {itemsPerPage: 10, currentPage: p, totalItems: novels.length}" class="card ml-1 mr-1 mt-1 mb-1 text-light" style="width: 13rem; height: 25rem; max-height: 25rem; background-color: black;">
+        <img class="card-img-top" src="{{novel.picture}}" alt="Slika">
+        <div class="card-body">
+          <h5 class="card-title"><b>{{novel.title}}</b></h5>
+        </div>
+        <ul class="list-group list-group-flush text-light ml-1 mr-1">
+            <li class="list-group-item bg-dark">{{novel.author}}</li>
+            <li class="list-group-item bg-dark" *ngIf="novel.status" style="color: green;">Završeno</li>
+            <li class="list-group-item bg-dark" *ngIf="novel.status==false" style="color: red;">U toku</li>
+        </ul>
+        <div class="card-body">
+          <a href="/novel/{{novel._id}}" class="card-link"><button class="btn btn-outline-danger"><i class="fa fa-forward" aria-hidden="true"></i> Više</button></a>
+        </div>
+    </div>
+</div>
+<br><br>
+<div class="row justify-content-center">
+  <!--<pagination-controls class="pag" responsive="true" previousLabel="Prethodno" nextLabel="Sljedeće" maxSize="3"  directionLinks="true" (pageChange) = "p = $event"></pagination-controls>-->
+  <pagination-controls onmouseover = "this.style.color = 'grey'" style="padding-top: 10px; padding-right: 40px; background-color: black; display: flex; justify-content: center;" class="" previousLabel="Prethodno" nextLabel="Sljedeće" (pageChange) = "p = $event"></pagination-controls>
+</div>

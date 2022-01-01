@@ -1,0 +1,13 @@
+<div>
+    <h2>Lista romana</h2>
+    <br>
+    <div *ngIf="msg" class="alert alert-success">Roman je obrisan.</div>
+    <div *ngFor="let novel of novels" class="bg-dark mb-2" style="border: solid white 1px;">
+        <img src="{{novel.picture}}" style="width: 100px; height: 100px;" alt="Nema">
+        <span class="ml-5">{{novel.title}}</span>
+        <div class="float-right mt-4 mr-5">
+            <a href="/admin/novel/{{novel._id}}"><button class="btn btn-outline-primary mr-3"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Uredi</button></a>
+            <button (click)="deleteNovel(novel._id)" class="btn btn-outline-danger"><i class="fa fa-trash" aria-hidden="true"></i> Obriši</button>
+        </div>
+    </div>
+</div>

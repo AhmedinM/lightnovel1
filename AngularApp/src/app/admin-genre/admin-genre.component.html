@@ -1,0 +1,25 @@
+<div class="row">
+    <div class="col-6">
+        <h2>Lista romana</h2>
+        <br>
+        <div *ngIf="msg" class="alert alert-success">Žanr je obrisan.</div>
+        <div *ngFor="let genre of genres" class="bg-dark mb-2 pt-3 pb-3" style="border: solid white 1px;">
+            <span class="ml-5">{{genre.name}}</span>
+            <button (click)="deleteGenre(genre._id)" class="float-right mr-5 btn btn-outline-danger"><i class="fa fa-trash" aria-hidden="true"></i> Obriši</button>
+        </div>
+    </div>
+    <form class=" col-6 text-center" ngNativeValidate>
+        <h3><u>Unos žanra</u></h3>
+        <br>
+        <div class="form-group col-12">
+            <label for="nameInput">Naziv:</label>
+            <input type="text" class="form-control text-light" style="background-color: black;" id="nameInput" aria-describedby="nameHelp" placeholder="Unesi ime..." name="name" [(ngModel)]="name" required>
+        </div>
+        <span class="alert alert-danger" role="alert" *ngIf="nameError">
+            Žanr već postoji!
+        </span>
+        <button type="submit" class="btn btn-outline-success" (click)="insertGenre()"><i class="fa fa-floppy-o" aria-hidden="true"></i> Sačuvaj</button>
+    </form>
+</div>
+
+<br>

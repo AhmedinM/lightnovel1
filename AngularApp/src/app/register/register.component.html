@@ -1,0 +1,45 @@
+<form class="text-center" ngNativeValidate>
+    <h3><u>Registracija</u></h3>
+    <hr>
+    <div class="form-group col-12">
+        <label for="usernameInput">Korisničko ime:</label>
+        <input type="text" class="form-control text-light" style="background-color: black;" id="usernameInput" aria-describedby="usernameHelp" placeholder="Unesi korisničko ime..." name="username" [(ngModel)]="username" required>
+        <br>
+        <span class="alert alert-danger" role="alert" *ngIf="usernameError">
+          Korisničko ime vec postoji!
+        </span>
+    </div>
+    <div class="form-group col-12">
+      <label for="emailInput">Email adresa:</label>
+      <input type="email" class="form-control text-light" style="background-color: black;" id="emailInput" aria-describedby="emailHelp" placeholder="Unesi email..." name="email" [(ngModel)]="email" required>
+      <br>
+      <span class="alert alert-danger" role="alert" *ngIf="emailError">
+        Email je zauzet!
+      </span>
+    </div>
+    <div class="form-group col-12">
+      <label for="passwordConfirmInput">Lozinka:</label>
+      <input type="password" class="form-control text-light" style="background-color: black;" id="passwordInput" placeholder="Unesi lozinku..." name="password" [(ngModel)]="password" required>
+    </div>
+    <div class="form-group col-12">
+        <label for="passwordConfirmInput">Potvrdi lozinku:</label>
+        <input type="password" class="form-control text-light" style="background-color: black;" id="passwordConfirmInput" placeholder="Unesi lozinku ponovo..." name="passwordConfirm" [(ngModel)]="passwordConfirm" required>
+        <br>
+        <span class="alert alert-danger" role="alert" *ngIf="passwordError">
+          Lozinke se ne poklapaju!
+        </span>
+    </div>
+    <div class="form-group col-12">
+        <label for="pictureInput">Slika:</label>
+        <input type="file" class="form-control-file" style="background-color: black;" id="pictureInput" name="picture" (change)="selected($event)" required>
+        <br>
+        <span class="alert alert-danger" role="alert" *ngIf="pictureError">
+          Ubacite sliku!
+        </span>
+    </div>
+    <hr>
+    <button type="submit" class="btn btn-outline-success" (click)="register()"><i class="fa fa-floppy-o" aria-hidden="true"></i> Registruj se</button>
+    <br><br>
+    <a class="text-light" href="/login">Prijavi se.</a>
+</form>
+<br>

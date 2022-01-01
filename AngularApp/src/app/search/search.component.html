@@ -1,0 +1,38 @@
+<form class="text-center" ngNativeValidate>  
+    <div class="form-group col-12">
+        <label for="textInput" class="control-label">Unos:</label>
+        <input type="text" class="form-control text-light" style="background-color: black;" id="textInput" aria-describedby="textHelp" placeholder="Unesi pojam..." name="text" [(ngModel)]="text" required>
+    </div>
+    <br>
+    <button type="submit" class="btn btn-primary" (click)="search()"><i class="fa fa-search" aria-hidden="true"></i> Traži</button>
+</form>
+<hr>
+<div *ngIf="error==false">
+    <h2>Lista romana</h2>
+    <br>
+    <div *ngIf="novelErr" class="bg-dark mb-2" style="border: solid white 1px;">
+        Nema rezultata.
+    </div>
+    <div *ngFor="let novel of novels" class="bg-dark mb-2" style="border: solid white 1px;">
+        <img src="{{novel.picture}}" style="width: 100px; height: 100px;" alt="Nema">
+        <span class="ml-5">{{novel.title}}</span>
+        <a href="/novel/{{novel._id}}"><button class="float-right mt-4 mr-5 btn btn-outline-primary"><i class="fa fa-forward" aria-hidden="true"></i> Otvori</button></a>
+    </div>
+</div>
+
+<div *ngIf="error==false">
+    <h2>Lista poglavlja</h2>
+    <br>
+    <div *ngIf="chapterErr" class="bg-dark mb-2" style="border: solid white 1px;">
+        Nema rezultata.
+    </div>
+    <div *ngFor="let chap of chapters" class="bg-dark mb-2" style="border: solid white 1px;">
+        <img src="{{chap.novel.picture}}" style="width: 100px; height: 100px;" alt="Nema">
+        <span class="ml-5">{{chap.number}}. {{chap.title}}</span>
+        <a href="/novel/{{chap.novel._id}}/{{chap._id}}"><button class="float-right mt-4 mr-5 btn btn-outline-primary"><i class="fa fa-forward" aria-hidden="true"></i> Otvori</button></a>
+    </div>
+</div>
+
+<div *ngIf="error">
+    <h3>Započnite pretragu...</h3>
+</div>

@@ -1,0 +1,35 @@
+<app-admin-chapter-insert></app-admin-chapter-insert>
+<br>
+<hr>
+<br>
+<div class="text-center" *ngIf="novel.status==false">
+    <h3><u>Označi kao završeno</u></h3>
+    <br>
+    <div *ngIf="cMsg" class="alert alert-success">Uspješno označeno.</div>
+    <button class="btn btn-success" (click)="check(novel._id)"><i class="fa fa-check-circle" aria-hidden="true"></i> Označi</button>
+    <br>
+    <hr>
+    <br>
+</div>
+<div>
+    <h2>Lista poglavlja</h2>
+    <br>
+    <div *ngIf="msgC" class="alert alert-success">Poglavlje je obrisano.</div>
+    <div *ngFor="let chapter of chapters" class="bg-dark mb-2 pt-1 pb-5" style="border: solid white 1px;">
+        <span class="ml-5">{{chapter.number}}. {{chapter.title}}</span>
+        <div class="float-right mt-4 mr-5">
+            <a href="/admin/novel/{{novel._id}}/{{chapter._id}}"><button class="btn btn-outline-primary mr-3"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Uredi</button></a>
+            <button (click)="deleteChapter(chapter._id)" class="btn btn-outline-danger"><i class="fa fa-trash" aria-hidden="true"></i> Obriši</button>
+        </div>
+    </div>
+</div>
+<br><hr><br>
+<div>
+    <h2>Lista recenzija</h2>
+    <br>
+    <div *ngIf="msgR" class="alert alert-success">Recenzija je obrisana.</div>
+    <div *ngFor="let review of reviews" class="bg-dark mb-2 pt-3 pb-3" style="border: solid white 1px;">
+        <span class="ml-5">{{review.text}}</span>
+        <button (click)="deleteReview(review._id)" class="float-right mr-5 btn btn-outline-danger"><i class="fa fa-trash" aria-hidden="true"></i> Obriši</button>
+    </div>
+</div>
